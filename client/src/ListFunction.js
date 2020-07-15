@@ -23,3 +23,20 @@ export const getList = () => {
     return res.data
   })
 }
+
+export const storeList = content => {
+  // console.log('okk')
+  return axios
+  .post(
+    '/api/store',
+    {
+      content:content
+    },
+    {
+      headers: { 'Content-Type': 'appilcation/json'}
+    }
+  )
+  .then(function(response){
+    console.log(response)
+  })
+}

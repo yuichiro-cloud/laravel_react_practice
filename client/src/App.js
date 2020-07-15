@@ -7,7 +7,7 @@ function App() {
     <div className="container">
     <div className="row">
       <div className="col-md-6 mx-auto">
-        <h1 className="text-center">TODO Lsit App</h1>
+        <h1 className="text-center">TODO List App</h1>
       </div>
       <List />
     </div>
