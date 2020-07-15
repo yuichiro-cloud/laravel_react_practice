@@ -1,16 +1,5 @@
 import axios from 'axios'
 
-// export const getLis = () => {
-//   return axios
-//   .get('/api/tasks', {
-//       headers: { 'Content-Type': 'application/json' }
-//   })
-//   .then(res => {
-//       // console.log(res);
-//       return res.data
-//   })
-// }
-
 
 export const getList = () => {
   return axios
@@ -25,7 +14,6 @@ export const getList = () => {
 }
 
 export const storeList = content => {
-  // console.log('okk')
   return axios
   .post(
     '/api/store',

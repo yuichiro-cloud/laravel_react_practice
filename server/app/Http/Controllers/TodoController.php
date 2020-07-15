@@ -32,4 +32,10 @@ class TodoController extends Controller
         $todo->delete();
         return ('204');
     }
+
+    public function update(Request $request){
+        $todo = Todo::findOrFail($request->id);
+        $todo->update($request->all());
+        return $todo;
+    }
 }
