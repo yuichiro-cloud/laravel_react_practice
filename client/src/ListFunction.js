@@ -40,3 +40,16 @@ export const storeList = content => {
     console.log(response)
   })
 }
+
+export const deleteList = id => {
+  axios
+  .delete(`/api/delete/${id}`, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(function(response) {
+    console.log(response)
+  })
+  .catch(function(error) {
+    console.log(error)
+  })
+}

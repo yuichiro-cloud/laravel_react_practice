@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {getList, storeList} from './ListFunction'
+import {getList, storeList, deleteList} from './ListFunction'
 
 class List extends Component{
   constructor() {
@@ -49,6 +49,23 @@ onSubmit = e => {
   })
 }
 
+onDelete = (val, e) => {
+  // console.log(val)
+  // console.log(e)
+  e.preventDefault()
+  deleteList(val)
+
+  let data = [...this.state.items]
+  data.filter(function(item, index){
+    if (item.id === val){
+      data.splice(index, 1)
+    }
+    // console.log(data)
+    return true
+  })
+  this.setState({ items: [...data] })
+}
+
   
   render(){
     return(
@@ -83,6 +100,20 @@ onSubmit = e => {
           <tr key={index}>
             <td className="text-left">{item.content}</td>
             <td className="created">{item.created_at}</td>
+            <td className="text-right">
+              <button
+                href=""
+                className="btn btn-danger"
+                desabled={this.state.editDisabled}
+                onClick={this.onDelete.bind(
+                  this,
+                  item.id
+                )}
+                >
+                  Delete
+
+              </button>
+            </td>
           </tr>
           ))}
         </tbody>
